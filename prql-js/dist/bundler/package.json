@@ -1,0 +1,19 @@
+{
+  "name": "prql-js",
+  "description": "Javascript bindings for prql-compiler",
+  "version": "0.2.6",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prql/prql"
+  },
+  "files": [
+    "prql_js_bg.wasm",
+    "prql_js.js",
+    "prql_js_bg.js",
+    "prql_js.d.ts"
+  ],
+  "module": "prql_js.js",
+  "types": "prql_js.d.ts",
+  "sideEffects": false
+}
