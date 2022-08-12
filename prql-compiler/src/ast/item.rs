@@ -394,14 +394,14 @@ fn display_interpolation(
     parts: &[InterpolateItem],
 ) -> Result<(), std::fmt::Error> {
     f.write_str(prefix)?;
-    f.write_char('"')?;
+    let mut str_lit = String::new();
     for part in parts {
         match &part {
-            InterpolateItem::String(s) => write!(f, "{s}")?,
-            InterpolateItem::Expr(e) => write!(f, "{{{}}}", e.item)?,
+            InterpolateItem::String(s) => write!(str_lit, "{s}")?,
+            InterpolateItem::Expr(e) => write!(str_lit, "{{{}}}", e.item)?,
         }
     }
-    f.write_char('"')?;
+    write!(f, "{}", Literal::String(str_lit))?;
     Ok(())
 }
 
